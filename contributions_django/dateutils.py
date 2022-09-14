@@ -36,7 +36,6 @@ def start():
 
 
 def month_ago():
-    print(datetime.date.today() - datetime.timedelta(30))
     return datetime.date.today() - datetime.timedelta(30)
 
 
