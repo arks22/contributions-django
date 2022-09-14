@@ -52,9 +52,6 @@ def generate_contributors_graph(items, title="Contributions"):
     for _ in range(30):
         monthly_count += counts[day]
         day = day - datetime.timedelta(1)
-        print(day)
-
-    print(monthly_count)
 
     graph = {
         "data": cells,
@@ -68,6 +65,7 @@ def generate_contributors_graph(items, title="Contributions"):
         "sum": sum(counts.values()),
         "sum_monthly": monthly_count,
         "title": title,
+        "month_ago_date":dateutils.display_date(dateutils.month_ago()),
         "start_date": dateutils.display_date(dateutils.start()),
         "today_date": dateutils.display_date(dateutils.today()),
         "last_date": ([""] + sorted([key for key, v in counts.items() if v]))[-1],

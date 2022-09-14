@@ -35,6 +35,10 @@ def start():
     return datetime.date(today().year - 1, today().month, today().day)
 
 
+def month_ago():
+    return datetime.date.today() - datetime.timedelta(30)
+
+
 def display_date(date):
     """
     Returns a long date string. Example output: "2022-09-12".
