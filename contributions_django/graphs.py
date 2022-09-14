@@ -52,7 +52,6 @@ def generate_contributors_graph(items, title="Contributions"):
     for _ in range(30):
         monthly_count += counts[day]
         day = day - datetime.timedelta(1)
-    print(monthly_count)
 
     graph = {
         "data": cells,
