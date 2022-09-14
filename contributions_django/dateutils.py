@@ -37,9 +37,9 @@ def start():
 
 def display_date(date):
     """
-    Returns a long date string. Example output: "May 24, 2015".
+    Returns a long date string. Example output: "2022-09-12".
     """
-    return date.strftime("%B %d, %Y").replace(" 0", " ")
+    return date.strftime("%Y-%m-%d")
 
 
 def previous_day(date):

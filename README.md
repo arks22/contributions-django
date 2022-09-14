@@ -38,7 +38,7 @@ a list of dates, and optionally a title to generate a context for your view:
 
 from .models import Event
 
-from django_contributions.graphs import generate_contributors_graph
+from contributions-django.graphs import generate_contributors_graph
 from django.shortcuts import render
 
 def events_view(request):

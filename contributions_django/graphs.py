@@ -47,6 +47,12 @@ def generate_contributors_graph(items, title="Contributions"):
     quartiles = dateutils.quartiles(counts.values())
     cells = gridify_contributions(counts, quartiles)
 
+    monthly_count = 0
+    day = dateutils.today()
+    for _ in range(30)
+        monthly_count += counts[day]
+        day = day - datetime.timedelta(1)
+
     graph = {
         "data": cells,
         "range": range(len(cells[0]) - 6),
@@ -57,6 +63,7 @@ def generate_contributors_graph(items, title="Contributions"):
             [key for key, val in counts.items() if val > 0]
         ),
         "sum": sum(counts.values()),
+        "sum_monthly": sum(counts.values()),
         "title": title,
         "start_date": dateutils.display_date(dateutils.start()),
         "today_date": dateutils.display_date(dateutils.today()),
@@ -75,19 +82,17 @@ def generate_contributors_graph(items, title="Contributions"):
 
     # Return the context for the template, namespaced by contributions_django
     return {
-        "contributions_django": {
-            "graph": graph,
-            "today": dateutils.today(),
-            "start": dateutils.today(),
-            "weekdays": weekdays,
-            "months": months,
+        "graph": graph,
+        "today": dateutils.today(),
+        "start": dateutils.today(),
+        "weekdays": weekdays,
+        "months": months,
             # Extra parameters to customize from settings
-            "include_bootstrap": settings.include_bootstrap,
-            "include_fontawesome": settings.include_fontawesome,
-            "icon_classes": settings.icon_classes,
-            "gradients": settings.gradients,
-            "use_circles": settings.use_circles,
-        }
+        "include_bootstrap": settings.include_bootstrap,
+        "include_fontawesome": settings.include_fontawesome,
+        "icon_classes": settings.icon_classes,
+        "gradients": settings.gradients,
+        "use_circles": settings.use_circles,
     }
 
 
