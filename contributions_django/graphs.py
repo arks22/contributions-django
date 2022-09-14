@@ -65,11 +65,12 @@ def generate_contributors_graph(items, title="Contributions"):
         "sum": sum(counts.values()),
         "sum_monthly": monthly_count,
         "title": title,
-        "month_ago_date":dateutils.display_date(dateutils.month_ago()),
+        "month_ago_date": dateutils.display_date(dateutils.month_ago()),
         "start_date": dateutils.display_date(dateutils.start()),
         "today_date": dateutils.display_date(dateutils.today()),
         "last_date": ([""] + sorted([key for key, v in counts.items() if v]))[-1],
     }
+    print(graph["month_ago_date"])
 
     # Generate weekdays and months
     weekdays = dateutils.weekday_initials()
